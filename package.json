@@ -1,0 +1,30 @@
+{
+  "name": "backend-typescript",
+  "version": "1.0.0",
+  "description": "My JS  chat application project migration to typescript",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Hadiqaa/Chat-Application-Typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hadiqaa/Chat-Application-Typescript/issues"
+  },
+  "homepage": "https://github.com/Hadiqaa/Chat-Application-Typescript#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "@types/sequelize": "^4.28.16",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "dev": "ts-node src/server.ts"
+  },
+  "dependencies": {
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1"
+  }
+}
