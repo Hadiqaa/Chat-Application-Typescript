@@ -1,6 +1,7 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 
 interface UserModelAttributes {
+
   userName: string;
   fullName: string;
   email: string;
@@ -12,6 +13,7 @@ interface UserModelCreationAttributes extends UserModelAttributes {
 }
 
 class User extends Model<UserModelAttributes, UserModelCreationAttributes> {
+  public id!: number;
   public userName!: string;
   public fullName!: string;
   public email!: string;
@@ -43,6 +45,7 @@ class User extends Model<UserModelAttributes, UserModelCreationAttributes> {
 export function initUserModel(sequelize: Sequelize): void {
   User.init(
     {
+
       userName: DataTypes.STRING,
       fullName: DataTypes.STRING,
       email: DataTypes.STRING,

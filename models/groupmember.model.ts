@@ -1,41 +1,42 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
-import  Group from './group.model'; // Import the Groups model (adjust the import path as needed)
+import  Groups from './group.model'; // Import the Groups model (adjust the import path as needed)
 import  User from './user.model'; // Import the User model (adjust the import path as needed)
 
-interface GroupParticipantsModelAttributes {
+interface GroupMembersModelAttributes {
   group_id: number;
   user_id: number;
 }
 
-interface GroupParticipantsModelCreationAttributes extends GroupParticipantsModelAttributes {}
+interface GroupMembersModelCreationAttributes extends GroupMembersModelAttributes {}
 
-class GroupParticipants extends Model<GroupParticipantsModelAttributes, GroupParticipantsModelCreationAttributes> {
+class GroupMembers extends Model<GroupMembersModelAttributes, GroupMembersModelCreationAttributes> {
+  [x: string]: any;
   public group_id!: number;
   public user_id!: number;
 
   // Define associations and other methods as needed
 
   public static associate(models: any): void {
-    GroupParticipants.belongsTo(models.Groups, {
+    GroupMembers.belongsTo(models.Groups, {
       foreignKey: 'group_id',
       as: 'groups',
     });
 
-    GroupParticipants.belongsTo(models.User, {
+    GroupMembers.belongsTo(models.User, {
       foreignKey: 'user_id',
       as: 'user',
     });
   }
 }
 
-export function initGroupParticipantsModel(sequelize: Sequelize): void {
-  GroupParticipants.init(
+export function initGroupMembersModel(sequelize: Sequelize): void {
+  GroupMembers.init(
     {
       group_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: Group,
+          model: Groups,
           key: 'id',
         },
       },
@@ -50,9 +51,9 @@ export function initGroupParticipantsModel(sequelize: Sequelize): void {
     },
     {
       sequelize,
-      modelName: 'Group_participants',
+      modelName: 'GroupMembers',
     }
   );
 }
 
-export default GroupParticipants;
+export default GroupMembers;

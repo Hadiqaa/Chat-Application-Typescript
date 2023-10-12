@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import AttachmentController from '../controllers/attachment.controller';
+import * as AttachmentController from '../controllers/attachment.controller';
 
 const router: Router = express.Router();
 

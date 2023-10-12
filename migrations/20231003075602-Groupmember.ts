@@ -4,7 +4,7 @@ import { QueryInterface, DataTypes, Sequelize } from 'sequelize';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface: QueryInterface, sequelize: Sequelize) {
-    await queryInterface.createTable('Group_participants', {
+    await queryInterface.createTable('GroupMembers', {
       id: {
         allowNull: false,
         autoIncrement: true,

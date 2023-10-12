@@ -1,7 +1,8 @@
-import { Model, DataTypes, Sequelize } from 'sequelize';
+import { Model, DataTypes, Sequelize, StringDataType, DateDataType } from 'sequelize';
 import  User from './user.model'; // Import the User model (adjust the import path as needed)
 
 interface GroupsModelAttributes {
+  id?: string;
   group_Name: string;
   creator_id: number;
 }
@@ -34,10 +35,6 @@ export function initGroupsModel(sequelize: Sequelize): void {
       creator_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: User,
-          key: 'id',
-        },
       },
     },
     {

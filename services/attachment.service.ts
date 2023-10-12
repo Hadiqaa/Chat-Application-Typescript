@@ -1,4 +1,4 @@
-import Attachments  from '../models';
+import Attachments  from '../models/attachment.model';
 
 // Function to create a new attachment
 const createAttachment = async (
